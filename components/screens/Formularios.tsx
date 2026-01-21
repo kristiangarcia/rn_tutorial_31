@@ -1,8 +1,9 @@
-import { ScrollView, View } from 'react-native'
+import { View } from 'react-native'
 import React, { useState } from 'react'
-import { Checkbox, HelperText, RadioButton, Searchbar, Text, TextInput } from 'react-native-paper'
+import { useTheme, Checkbox, HelperText, RadioButton, Searchbar, Text, TextInput } from 'react-native-paper'
 
 export default function Formularios() {
+    const tema = useTheme()
     const [edad, setEdad] = useState("")
     const [errorEdad, setErrorEdad] = useState("")
     const [contraseñaOculta, setContraseñaOculta] = useState(true)
@@ -16,7 +17,7 @@ export default function Formularios() {
     }
 
     return (
-        <ScrollView className='flex-1 justify-center p-4'>
+        <View className='flex-1 p-4' style={{backgroundColor:tema.colors.background}}>
             <Text variant="titleLarge">Formularios</Text>
             <TextInput label="Nombre" mode='flat'/>
             <TextInput label="Edad" value={edad} onChangeText={setEdad} mode="outlined" onBlur={validarEdad}/>
@@ -56,6 +57,6 @@ export default function Formularios() {
                 mode="outlined" label="Observaciones" style={{height:120}}
                 maxLength={200} multiline={true} numberOfLines={4}
             />
-        </ScrollView>
+        </View>
     )
 }

@@ -4,14 +4,18 @@ import { temaClaro } from 'themes/TemaClaro'
 import { useColorScheme } from 'react-native'
 import { temaOscuro } from 'themes/TemaOscuro'
 import Textos from 'components/screens/Textos'
-import Formularios from 'components/screens/Formularios'
-import Botones from 'components/screens/Botones'
+//import Botones from 'components/screens/Botones'
+//import Formularios from 'components/screens/Formularios'
+
+import './global.css'
 
 export default function App() {
   const temaActivo = useColorScheme()
   return (
     <PaperProvider theme={temaActivo === "light" ? temaClaro : temaOscuro}>
-      <Botones/>
+      <Textos/>
+      {/* <Botones/> */}
+      {/* <Formularios/> */}
     </PaperProvider>
   )
 }

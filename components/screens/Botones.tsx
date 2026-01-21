@@ -1,15 +1,16 @@
-import { ScrollView, StyleSheet, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React, { useState } from 'react'
-import { Avatar, Button, Chip, FAB, IconButton, SegmentedButtons, Snackbar, Switch, Text, ToggleButton } from 'react-native-paper'
+import { useTheme, Avatar, Button, Chip, FAB, IconButton, SegmentedButtons, Snackbar, Switch, Text, ToggleButton } from 'react-native-paper'
 
 export default function Botones() {
+    const tema = useTheme()
     const [switchActivado, setSwitchActivado] = useState(false)
     const [toggleSeleccionado, setToggleSeleccionado] = useState("")
     const [segmentedSeleccionado, setSegmentedSeleccionado] = useState("")
     const [menuDesplegado, setMenuDesplegado] = useState(false)
     const [snackVisible, setSnackVisible] = useState(false)
     return (
-        <ScrollView className='flex-1 justify-center p-4'>
+        <View className='flex-1 p-4' style={{backgroundColor:tema.colors.background}}>
             <Text variant='titleMedium'>Botones de texto</Text>
             <View className='flex-row px-4 flex-wrap'>
                 <Button onPress={()=>console.log("Pulsado")}>Aceptar</Button>
@@ -109,7 +110,7 @@ export default function Botones() {
                     }}>
                 <Text>El botón ha sido pulsado</Text>
             </Snackbar>
-        </ScrollView>
+        </View>
     )
 }
 
